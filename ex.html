@@ -1,0 +1,25 @@
+var myGamePiece;
+var myObstacles = [];
+
+function updateGameArea() {
+  var x, y;
+  for (i = 0; i < myObstacles.length; i += 1) {
+    if (myGamePiece.crashWith(myObstacles[i])) {
+      myGameArea.stop();
+      return;
+    }
+  }
+  myGameArea.clear();
+  myGameArea.frameNo += 1;
+  if (myGameArea.frameNo == 1 || everyinterval(150)) {
+    x = myGameArea.canvas.width;
+    y = myGameArea.canvas.height - 200
+    myObstacles.push(new component(10, 200, "green", x, y));
+  }
+  for (i = 0; i < myObstacles.length; i += 1) {
+    myObstacles[i].x += -1;
+    myObstacles[i].update();
+  }
+  myGamePiece.newPos();
+  myGamePiece.update();
+}
