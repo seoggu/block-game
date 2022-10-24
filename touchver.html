@@ -12,7 +12,7 @@ canvas {
 <body onload="startGame()">
 
 
-<script ontouchstart="accelerate(-0.2)" ontouchend="accelerate(0.05)">
+<script>
 
 var myScore;
 
@@ -47,6 +47,9 @@ var myGameArea = {
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
         this.interval = setInterval(updateGameArea, 20);
+        //터치스크린용
+
+        //터치스크린용 끝
     },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -168,6 +171,15 @@ function clearmove() {
 function accelerate(n) {
   myGamePiece.gravity = n;
 }
+
+//터치스크린용
+document.addEventListener("touchstart", e => {
+    accelerate(-0.2);
+})
+document.addEventListener("touchend", e => {
+  accelerate(0.05);
+})
+//터치스크린용 끝
 
 
 </script>
