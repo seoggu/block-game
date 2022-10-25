@@ -21,7 +21,7 @@ startGame();
 function startGame() {
     myGameArea = new gamearea();
     myScore = new component("30px", "consolas", "black", 280, 40, "text");
-    myGamePiece = new component(30, 30, "mongshu1.gif", 10, 120, "image");
+    myGamePiece = new component(30, 30, "mongshu1.png", 10, 120, "image");
     myGameArea.start();
 
 }
@@ -66,7 +66,7 @@ function component(width, height, color, x, y, type) {
     this.y = y;
     this.gravity = 0.05;
     this.gravitySpeed = 0;
-    this.bounce = 0.6;
+    this.bounce = 0.3;
     this.update = function() {
       ctx = myGameArea.context;
       if (this.type == "text") {
@@ -140,7 +140,37 @@ function updateGameArea() {
   if (myGameArea.pause ==false){
   myGameArea.clear();
   myGameArea.frameNo += 1;
+
+
+if(myGameArea.frameNo < 2000){
   if (myGameArea.frameNo == 1 || everyinterval(150)) {
+    x = myGameArea.canvas.width;
+    y = myGameArea.canvas.height;
+    minHeight = 20;
+    maxHeight = 200;
+    height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
+    minGap = 70;
+    maxGap = 200;
+    gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
+    myObstacles.push(new component(10, height, "green", x, 0));
+    myObstacles.push(new component(10, y - height - gap , "green", x, height + gap));
+  }
+} if( myGameArea.frameNo >= 2000 & myGameArea.frameNo <4000 ){
+  if (myGameArea.frameNo == 1 || everyinterval(130)) {
+    x = myGameArea.canvas.width;
+    y = myGameArea.canvas.height;
+    minHeight = 20;
+    maxHeight = 200;
+    height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
+    minGap = 60;
+    maxGap = 200;
+    gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
+    myObstacles.push(new component(10, height, "green", x, 0));
+    myObstacles.push(new component(10, y - height - gap , "green", x, height + gap));
+  }
+}
+if( myGameArea.frameNo >= 4000 & myGameArea.frameNo <7000){
+  if (myGameArea.frameNo == 1 || everyinterval(110)) {
     x = myGameArea.canvas.width;
     y = myGameArea.canvas.height;
     minHeight = 20;
@@ -152,8 +182,29 @@ function updateGameArea() {
     myObstacles.push(new component(10, height, "green", x, 0));
     myObstacles.push(new component(10, y - height - gap , "green", x, height + gap));
   }
+}
+if( myGameArea.frameNo >= 7000){
+  if (myGameArea.frameNo == 1 || everyinterval(90)) {
+    x = myGameArea.canvas.width;
+    y = myGameArea.canvas.height;
+    minHeight = 20;
+    maxHeight = 200;
+    height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
+    minGap = 50;
+    maxGap = 200;
+    gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
+    myObstacles.push(new component(10, height, "green", x, 0));
+    myObstacles.push(new component(10, y - height - gap , "green", x, height + gap));
+  }
+}
+
+
+
+
+
+
   for (i = 0; i < myObstacles.length; i += 1) {
-    myObstacles[i].x += -1;
+    myObstacles[i].x += -3;
     myObstacles[i].update();
   }
   myScore.text = "SCORE: " + myGameArea.frameNo;
@@ -176,7 +227,7 @@ function movedown() {
   myGamePiece.speedY += 1;
 }
 function clearmove() {
-  myGamePiece.image.src = "mongshu1.gif"
+  myGamePiece.image.src = "mongshu1.png"
   myGamePiece.speedX = 0;
   myGamePiece.speedY = 0;
 }
