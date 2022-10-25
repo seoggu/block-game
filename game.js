@@ -163,7 +163,7 @@ if(myGameArea.frameNo < 2000){
     maxHeight = 200;
     height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
     minGap = 60;
-    maxGap = 200;
+    maxGap = 170;
     gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
     myObstacles.push(new component(10, height, "green", x, 0));
     myObstacles.push(new component(10, y - height - gap , "green", x, height + gap));
@@ -177,13 +177,13 @@ if( myGameArea.frameNo >= 4000 & myGameArea.frameNo <7000){
     maxHeight = 200;
     height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
     minGap = 50;
-    maxGap = 200;
+    maxGap = 140;
     gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
     myObstacles.push(new component(10, height, "green", x, 0));
     myObstacles.push(new component(10, y - height - gap , "green", x, height + gap));
   }
 }
-if( myGameArea.frameNo >= 7000){
+if( myGameArea.frameNo >= 7000 & myGameArea.frameNo <10000){
   if (myGameArea.frameNo == 1 || everyinterval(90)) {
     x = myGameArea.canvas.width;
     y = myGameArea.canvas.height;
@@ -191,7 +191,35 @@ if( myGameArea.frameNo >= 7000){
     maxHeight = 200;
     height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
     minGap = 50;
-    maxGap = 200;
+    maxGap = 100;
+    gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
+    myObstacles.push(new component(10, height, "green", x, 0));
+    myObstacles.push(new component(10, y - height - gap , "green", x, height + gap));
+  }
+}
+if( myGameArea.frameNo >= 10000 & myGameArea.frameNo <15000){
+  if (myGameArea.frameNo == 1 || everyinterval(70)) {
+    x = myGameArea.canvas.width;
+    y = myGameArea.canvas.height;
+    minHeight = 20;
+    maxHeight = 200;
+    height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
+    minGap = 50;
+    maxGap = 100;
+    gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
+    myObstacles.push(new component(10, height, "green", x, 0));
+    myObstacles.push(new component(10, y - height - gap , "green", x, height + gap));
+  }
+}
+if( myGameArea.frameNo >= 15000){
+  if (myGameArea.frameNo == 1 || everyinterval(60)) {
+    x = myGameArea.canvas.width;
+    y = myGameArea.canvas.height;
+    minHeight = 20;
+    maxHeight = 200;
+    height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
+    minGap = 50;
+    maxGap = 70;
     gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
     myObstacles.push(new component(10, height, "green", x, 0));
     myObstacles.push(new component(10, y - height - gap , "green", x, height + gap));
