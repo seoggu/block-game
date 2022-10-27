@@ -141,7 +141,7 @@ function updateGameArea() {
   myGameArea.clear();
   myGameArea.frameNo += 1;
 
-
+  //난이도조절
 if(myGameArea.frameNo < 2000){
   if (myGameArea.frameNo == 1 || everyinterval(150)) {
     x = myGameArea.canvas.width;
@@ -225,7 +225,7 @@ if( myGameArea.frameNo >= 15000){
     myObstacles.push(new component(10, y - height - gap , "green", x, height + gap));
   }
 }
-
+//난이도조절
 
 
 
